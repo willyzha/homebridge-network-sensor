@@ -1,5 +1,5 @@
 {
-  "name": "homebridge-wifi-home-sensor",
+  "name": "homebridge-network-sensor",
   "version": "0.0.1",
   "description": "Using wifi to detect if you are home.",
   "license": "BSD-2",
