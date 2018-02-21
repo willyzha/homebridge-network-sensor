@@ -1,5 +1,4 @@
-var http = require('http');
-var Service, Characteristic, HomebridgeAPI;
+var Service, Characteristic;
 
 module.exports = function(homebridge) {
   console.log("homebridge API version: " + homebridge.version);
@@ -17,15 +16,15 @@ function NetworkSensorAccessory(log, config) {
   this.log = log;
 
   this.name = config["name"];
-  this.mac = config["mac"]
-  this.updateInterval = config["update_interval"]
+  this.mac = config["mac"];
+  this.updateInterval = config["update_interval"];
 }
 
 NetworkSensorAccessory.prototype = {
   updateState: function () {
     var newOccupancyValue = True;
     // CODE TO CHECK IF MAC ADDRESS IS ON NETWORK
-    this.occupancyService.getCharacteristic((Characteristic.OccupancyDetected)
+    this.occupancyService.getCharacteristic(Characteristic.OccupancyDetected)
                           .setValue(newOccupancyValue ? Characteristic.OccupancyDetected.OCCUPANCY_DETECTED : Characteristic.OccupancyDetected.OCCUPANCY_NOT_DETECTED);
   },
   
