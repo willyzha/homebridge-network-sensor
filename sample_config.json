@@ -1,0 +1,11 @@
+{
+    "accessories": [
+        {
+            "accessory": "NetworkSensor",
+            "name": "iPhoneX",
+            "mac": "B0:19:C6:C5:AC:1E",
+            "update_interval": 10000,
+            "detection_timeout": 120000 
+        }
+    ]
+}
