@@ -53,7 +53,7 @@ NetworkSensorAccessory.prototype = {
     
     this.occupancyService.getCharacteristic(Characteristic.OccupancyDetected)
                           .setValue(this.outputOccupancyValue ? Characteristic.OccupancyDetected.OCCUPANCY_DETECTED : Characteristic.OccupancyDetected.OCCUPANCY_NOT_DETECTED);
-    this.log("Detected: " + this.detectedOccupancyValue + " Output: " + this.outputOccupancyValue + " timeSinceLastSeen: " + this.timeSinceLastSeen)
+    this.log.debug("Detected: " + this.detectedOccupancyValue + " Output: " + this.outputOccupancyValue + " timeSinceLastSeen: " + this.timeSinceLastSeen)
   },
 
   updateState: function () {
