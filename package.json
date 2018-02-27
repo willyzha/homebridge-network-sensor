@@ -1,14 +1,14 @@
 {
-  "name": "homebridge-network-sensor",
+  "name": "network-sensor",
   "version": "0.0.1",
   "description": "Using wifi to detect if you are home.",
-  "license": "BSD-2",
+  "license": "BSD-2-Clause",
   "keywords": [
     "homebridge-plugin"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/willyzha/homebridge-wifi-home-sensor.git"
+    "url": "git+https://github.com/willyzha/homebridge-wifi-home-sensor.git"
   },
   "bugs": {
     "url": "http://github.com//willyzha/homebridge-wifi-home-sensor/issues"
@@ -16,5 +16,11 @@
   "engines": {
     "node": ">=0.12.0",
     "homebridge": ">=0.2.0"
-  }
+  },
+  "homepage": "https://github.com/willyzha/homebridge-wifi-home-sensor#readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Willy"
 }
