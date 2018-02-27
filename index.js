@@ -28,6 +28,7 @@ function NetworkSensorAccessory(log, config) {
   }
   this.detectedOccupancyValue = false
   this.outputOccupancyValue = false
+  this.timeSinceLastSeen = 0
 }
 
 //function puts(error, stdout, stderr) { sys.puts(stdout) }
@@ -35,20 +36,24 @@ function NetworkSensorAccessory(log, config) {
 NetworkSensorAccessory.prototype = {
   
   puts: function(error, stdout, stderr) { 
-    console.log(stdout)
+    //console.log(stdout)
     if (!stdout) {
       this.detectedOccupancyValue = false
-      console.log(this.detectedOccupancyValue)
+      //console.log(this.detectedOccupancyValue)
+      this.timeSinceLastSeen = this.timeSinceLastSeen + this.updateInterval
     } else {
       this.detectedOccupancyValue = true
-      console.log(this.detectedOccupancyValue)
+      //console.log(this.detectedOccupancyValue)
+      this.timeSinceLastSeen = 0
     }
 
-    this.outputOccupancyValue = this.detectedOccupancyValue;
+    if ((this.detectedOccupancyValue == false && this.timeSinceLastSeen >= this.detection_timeout) || this.detectedOccupancyValue == true) {
+        this.outputOccupancyValue = this.detectedOccupancyValue;
+    }
     
     this.occupancyService.getCharacteristic(Characteristic.OccupancyDetected)
                           .setValue(this.outputOccupancyValue ? Characteristic.OccupancyDetected.OCCUPANCY_DETECTED : Characteristic.OccupancyDetected.OCCUPANCY_NOT_DETECTED);
-    this.log("Detected: " + this.detectedOccupancyValue + " Output: " + this.outputOccupancyValue)
+    this.log("Detected: " + this.detectedOccupancyValue + " Output: " + this.outputOccupancyValue + " timeSinceLastSeen: " + this.timeSinceLastSeen)
   },
 
   updateState: function () {
