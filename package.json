@@ -1,6 +1,6 @@
 {
-  "name": "network-sensor",
-  "version": "0.0.1",
+  "name": "homebridge-network-sensor",
+  "version": "0.0.2",
   "description": "Using wifi to detect if you are home.",
   "license": "BSD-2-Clause",
   "keywords": [
@@ -22,5 +22,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Willy"
+  "author": "Willy",
+  "dependencies": {
+  },
+  "devDependencies": {}
 }
