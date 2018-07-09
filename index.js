@@ -20,6 +20,7 @@ function NetworkSensorAccessory(log, config) {
 
   this.name = config["name"];
   this.mac = config["mac"];
+  this.iface = config["iface"];
   this.updateInterval = config["update_interval"];
   this.detection_timeout = config["detection_timeout"];
   if (this.updateInterval > this.detection_timeout)
@@ -59,7 +60,7 @@ NetworkSensorAccessory.prototype = {
   updateState: function () {
     // CODE TO CHECK IF MAC ADDRESS IS ON NETWORK
 
-    exec("sudo arp-scan --interface=wlan0 -l| grep -i " + this.mac, this.puts.bind(this));
+    exec("sudo arp-scan --interface="+ this.iface +" -l| grep -i " + this.mac, this.puts.bind(this));
 
     //this.log(this.detectedOccupancyValue )
 
